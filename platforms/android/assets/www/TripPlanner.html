@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        	<script type="text/javascript" src="/Resources/Shared/Scripts/jquery/jquery.min.js"></script>
+
+    </head>
+    <body>
+<form name="Form" method="post" action="/default.aspx" id="Form" enctype="multipart/form-data">
+			<script type="text/javascript">
+				var theForm = document.forms['Form'];
+				if (!theForm) {
+					theForm = document.Form;
+				}
+				function __doPostBack(eventTarget, eventArgument) {
+					if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+						theForm.__EVENTTARGET.value = eventTarget;
+						theForm.__EVENTARGUMENT.value = eventArgument;
+						theForm.submit();
+					}
+				}//end function
+			</script>
+			<script type="text/javascript">DDRjQuery=window.DDRjQuery||jQuery;</script><script type="text/javascript">if (!(window.DDR && window.DDR.Menu && window.DDR.Menu.Providers && window.DDR.Menu.Providers.SolPart)) document.write(unescape('%3Cscript src="/DesktopModules/DDRMenu/SolPart/SolPartMenu.min.js" type="text/javascript"%3E%3C/script%3E'));</script><script src="/DesktopModules/DDRMenu/SolPart/SolPartMenu.min.js" type="text/javascript"></script>
+			<script src="/ScriptResource.axd?d=TFlFhssuJnfA3-_WLQnWr6RvhAOdSb88gCPHprTcjF2-Pw0s4q3ixWtw6DYiG9r9bouEEtO1p8CsjVzm6OXqLYpfDgrSCb5jokoDjQsODYpU089fxE3snM4CyoqgFYVRBghxJPxbhmiEX6Hdqs0fq2SvcOk1&amp;t=33137d1a" type="text/javascript"></script>
+			<script src="/ScriptResource.axd?d=HC06C5a0KEC7j_I86fvLlJiWmEdqPBrVJmxsO-QeNZfVhU5QC8mKqiPGECdTHDwCzH0brfroenRfE7eXDm-WIBc5tOibcEzmllWzr6mYO1Bz76hTCjZuJSsBODOsHmND54t7kKGqTljjBVQZgY1lw7Q4ij2AHtF27LxJJg2&amp;t=33137d1a" type="text/javascript"></script>
+			<script type="text/javascript">
+			//<![CDATA[
+			Sys.WebForms.PageRequestManager._initialize('ScriptManager', document.getElementById('Form'));
+			Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+			//]]>
+			</script>    
+			<!-- Start_Module_381 -->
+			<div style="text-align: center;"><b>Trip Planner</b></div>
+			<h2 style="font-size: medium; font-weight: normal; text-align: center;">Find how you can get where you want to go</h2>
+			<div>
+				<script language="javascript">
+					// Edit the strings below this line
+					var startExample = "ILM Airport";
+					var endExample = "3500 Oleander Drive, Wilmington, NC";
+					var zip = "28403";
+					// End edit block
+					// Get and parse the user's current date/time
+					var date = new Date();
+					var isPM = false;
+					var currentTime = date.getHours();
+					var currentDate = "";
+					var amOption = '<option value="am">AM';
+					var pmOption = '<option value="pm">PM';
+					
+					if(currentTime > 11)
+					isPM = true;
+					currentTime %= 12;
+					
+					if(currentTime == 0)
+					currentTime = 12;
+					currentTime += ':';
+					
+					if(date.getMinutes() < 10)
+					currentTime += '0';
+					currentTime += date.getMinutes();
+
+					 if(isPM)
+					 pmOption = '<option selected="true" value="pm">PM';
+					 else
+					 amOption = '<option selected="true" value="am">AM';
+
+					 if(date.getMonth() < 9)
+					 currentDate = '0';
+					 currentDate += (date.getMonth() + 1) + '/';
+					 if(date.getDate() < 10)
+					 currentDate += '0';
+					 currentDate += date.getDate() + '/' + date.getFullYear();
+
+					 // Builds the destination URL
+					 function buildURL() 
+					 {
+					 	var loc = 'http://www.google.com/maps?ie=UTF8&f=d&';
+					 	for (var i = 0; (i < document.Form.length - 1); i++) 
+						 {
+							if(document.Form[i].name === 'ampm')
+								continue;
+							if(document.Form[i].name === 'time')
+								loc += document.Form[i].name + '=' + document.Form[i].value + document.Form.ampm.value + '&';
+							else 
+							{
+								if(document.Form[i].name === 'saddr')
+									loc += document.Form[i].name + '=' + document.Form[i].value + '+near+' + zip + '&';
+								else if(document.Form[i].name === 'daddr' || document.Form[i].name == 'date' || document.Form[i].name === 'ttype')
+									loc += document.Form[i].name + '=' + document.Form[i].value + '&';
+							}
+					 	}
+					 	loc+='dirflg=r';
+					 	return loc;
+					 }
+				</script>
+				<table>
+					<tr><td colspan="2">
+						<font size="-2" face="arial">
+							&nbsp;<strong>Start</strong>&nbsp;
+							<font color="#555555">e.g. <script language="javascript">document.write(startExample)</script></font><br>
+							&nbsp;<input size="27" name="saddr" maxlength="2048" title="Enter the Origin Address" type="text"><br>
+							&nbsp;<strong>End</strong>&nbsp;
+							<font color="#555555">e.g. <script language="javascript">document.write(endExample)</script></font><br>
+							&nbsp;<input size="27" name="daddr" maxlength="2048" title="Enter the Destination Address" type="text">
+						</font>
+						<table>
+							<tr>
+								<td><font size="-2" face="arial"><strong>Date</strong></font></td>
+								<td><font size="-2" face="arial"><strong>Time</strong></font></td>
+							</tr>
+                                                        document.write('<td>');
+							document.write('<input type="text" id="fdate" size="10" name="date" value="' + currentDate + '" maxlength="10" title="Enter the Date in MM/DD/YY format">');
+								document.write('</td>');
+								document.write('<td>');
+								document.write('<input type="text" id="ftime" size="5" name="time" value="' + currentTime + '" maxlength="8" title="Enter the Time in HH:MM AM or PM format">');
+								document.write(' <select name="ampm">' + amOption + pmOption + '</select>');
+								document.write('</td>');
+						
+						</table>
+						<font size="-1" face="arial">
+							&nbsp;Plan by:
+							<select name="ttype">
+								<option value="dep">Departure Time</option>
+								<option value="arr">Arrival Time</option>
+							</select>
+						 </font>
+						<br><center><a href="#" onclick="window.open(buildURL(),'childWin','')"><img style="margin-top: 10px;" alt="" src="http://www.wavetransit.com/Portals/0/images/getdirections.png" border="0"></a></center>
+					</td></tr>
+				</table>
+			</div>
+		</form>		    </body>
+</html>

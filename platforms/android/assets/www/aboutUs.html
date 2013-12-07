@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+		<title>About Us</title> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+  <body> 
+		<div data-role="page" class="page">
+			<div data-role="header" data-theme="b">
+				<a href="index.html"  data-icon="arrow-l" data-direction="reverse">Back</a>
+				<a href="index.html" data-icon="home" data-direction="reverse">Home</a>
+				<h1>About Us</h1>
+			</div><!--/header-->
+			<div data-role="content">
+				<ul data-role="listview" data-theme="b" data-inset="true" data-split-theme="d">
+					
+					<li><a href="ContactUs.html" data-prefetch>Contact Us</a></li>
+                    <li><a href="http://www.wavetransit.com/about/faq.aspx" >faq</a></li>
+                    <li><a href="http://www.wavetransit.com/about/news.aspx" class="ajaxtrigger">News</a></li>
+                    <li><a href="http://www.wavetransit.com/about/legal.aspx" class="ajaxtrigger">Legal</a></li>
+                   
+					</ul>
+			</div><!-- /content -->
+                        <input type="button" id="button1" onclick="window.open('http://www.wavetransit.com/about/legal.aspx','_blank','location=yes','closebuttoncaption=Return');" value="in App browser test">
+
+		</div><!-- /page -->
+        <script src="http://code.jquery.com/jquery-latest.pack.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script src="code.js"></script>
+        <script src="error-handling.js"></script>
+    </body>
+</html>
